@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    //private final JwtAuthConverter jwtAuthConverter;
+    private final JwtAuthConverter jwtAuthConverter;
 
 
     @Bean
@@ -30,8 +30,8 @@ public class SecurityConfig {
 
         http
                 .oauth2ResourceServer()
-                .jwt();
-                //.jwtAuthenticationConverter(jwtAuthConverter);
+                .jwt()
+                .jwtAuthenticationConverter(jwtAuthConverter);
 
         http
                 .sessionManagement()
